@@ -4,8 +4,9 @@ A minimal Kotlin Android application template project.
 
 ## Basic information
 
+- Kotlin: 1.7.20
 - Gradle: 7.4.2
-- Android Gradle Plugin (AGP): 7.3.0
+- Android Gradle Plugin (AGP): 7.3.1
 - SDK build-tools: 33.0.0
 - Compile/Target SDK: 33 (13 Tiramisu)
 - Minimum SDK: 26 (8.0 Oreo, for adaptive icons)
