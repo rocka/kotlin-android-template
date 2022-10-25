@@ -2,7 +2,7 @@
 
 A minimal Kotlin Android application template project.
 
-## Basic infomation
+## Basic information
 
 - Gradle: 7.4.2
 - Android Gradle Plugin (AGP): 7.3.0
@@ -13,7 +13,7 @@ A minimal Kotlin Android application template project.
 - Core Library Desugaring enabled
 - Code/Resource shrinking enabled
 - Obfuscation disabled
-- Different pakcage name for release and debug build (`.debug` suffix)
+- Different package name for release and debug build (`.debug` suffix)
 
 ## Application features
 

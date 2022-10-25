@@ -16,5 +16,5 @@ dependencyResolutionManagement {
     }
 }
 
-include (":app")
+include(":app")
 rootProject.name = "Kotlin Android Template"
