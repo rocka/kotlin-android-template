@@ -17,4 +17,4 @@ dependencyResolutionManagement {
 }
 
 include(":app")
-rootProject.name = "Kotlin Android Template"
+rootProject.name = "Native Dependencies Test"
