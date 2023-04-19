@@ -5,10 +5,13 @@ plugins {
 
 val packageName = "rocka.template"
 
+val javaVersion = JavaVersion.VERSION_11
+
+@Suppress("UnstableApiUsage")
 android {
     namespace = packageName
     compileSdk = 33
-    buildToolsVersion = "33.0.0"
+    buildToolsVersion = "33.0.2"
 
     defaultConfig {
         applicationId = packageName
@@ -19,17 +22,12 @@ android {
     }
 
     buildTypes {
-        getByName("debug") {
+        debug {
             applicationIdSuffix = ".debug"
-            isDefault = true
-            isDebuggable = true
-            isJniDebuggable = true
         }
-        getByName("release") {
+        release {
             isMinifyEnabled = true
             isShrinkResources = true
-            isDebuggable = false
-            isJniDebuggable = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -43,15 +41,16 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
+        sourceCompatibility = javaVersion
+        targetCompatibility = javaVersion
     }
 }
 
+// https://youtrack.jetbrains.com/issue/KT-55947
+tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
+    kotlinOptions.jvmTarget = javaVersion.toString()
+}
+
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:1.2.2")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.3")
 }
