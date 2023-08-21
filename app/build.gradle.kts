@@ -7,7 +7,6 @@ val packageName = "rocka.template"
 
 val javaVersion = JavaVersion.VERSION_11
 
-@Suppress("UnstableApiUsage")
 android {
     namespace = packageName
     compileSdk = 33
