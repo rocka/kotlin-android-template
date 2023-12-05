@@ -11,6 +11,7 @@ A minimal Kotlin Android application template project.
 - Compile/Target SDK: 34 (14 UpsideDownCake)
 - Minimum SDK: 26 (8.0 Oreo, for adaptive icons)
 - View Binding enabled
+- Automatic per-app language support enabled
 - Core Library Desugaring enabled
 - Code/Resource shrinking enabled
 - Obfuscation disabled

@@ -38,6 +38,10 @@ android {
         viewBinding = true
     }
 
+    androidResources {
+        generateLocaleConfig = true
+    }
+
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = javaVersion
