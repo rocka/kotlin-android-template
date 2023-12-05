@@ -4,11 +4,11 @@ A minimal Kotlin Android application template project.
 
 ## Basic information
 
-- Kotlin: 1.9.0
+- Kotlin: 1.9.21
 - Gradle: 8.2.1
-- Android Gradle Plugin (AGP): 8.1.0
-- SDK build-tools: 33.0.2
-- Compile/Target SDK: 33 (13 Tiramisu)
+- Android Gradle Plugin (AGP): 8.2.0
+- SDK build-tools: 34.0.0
+- Compile/Target SDK: 34 (14 UpsideDownCake)
 - Minimum SDK: 26 (8.0 Oreo, for adaptive icons)
 - View Binding enabled
 - Core Library Desugaring enabled
