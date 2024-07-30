@@ -6,7 +6,7 @@ A minimal Kotlin Android application template project.
 
 - Kotlin: 1.9.24
 - Gradle: 8.7.0
-- Android Gradle Plugin (AGP): 8.5.0
+- Android Gradle Plugin (AGP): 8.5.1
 - SDK build-tools: 35.0.0
 - Compile/Target SDK: 35 (15)
 - Minimum SDK: 26 (8.0 Oreo, for adaptive icons)
