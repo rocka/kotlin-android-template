@@ -1,6 +1,9 @@
+import com.android.build.gradle.internal.tasks.CompileArtProfileTask
+import com.android.build.gradle.internal.tasks.ExpandArtProfileWildcardsTask
+import com.android.build.gradle.internal.tasks.MergeArtProfileTask
 import com.android.build.gradle.tasks.PackageApplication
+import org.gradle.api.internal.provider.AbstractProperty
 import org.gradle.api.internal.provider.Providers
-import java.lang.reflect.Field
 
 plugins {
     id("com.android.application")
@@ -63,10 +66,10 @@ android {
     }
 
     buildTypes {
-        onEach {
+        all {
             // remove META-INF/version-control-info.textproto
             @Suppress("UnstableApiUsage")
-            it.vcsInfo.include = false
+            vcsInfo.include = false
         }
     }
 
@@ -84,16 +87,14 @@ android {
 
 // remove META-INF/com/android/build/gradle/app-metadata.properties
 tasks.withType<PackageApplication> {
-    var javaClass: Class<*>? = appMetadata.javaClass
-    var valueField: Field? = null
-    while (javaClass != null) {
-        valueField = javaClass.declaredFields.find { it.name == "value" }
-        if (valueField != null) break
-        else javaClass = javaClass.superclass
-    }
-    valueField?.isAccessible = true
+    val valueField =
+        AbstractProperty::class.java.declaredFields.find { it.name == "value" } ?: run {
+            println("class AbstractProperty field value not found, something could have gone wrong")
+            return@withType
+        }
+    valueField.isAccessible = true
     doFirst {
-        valueField?.set(appMetadata, Providers.notDefined<RegularFile>())
+        valueField.set(appMetadata, Providers.notDefined<RegularFile>())
         allInputFilesWithNameOnlyPathSensitivity.removeAll { true }
     }
 }
