@@ -4,9 +4,9 @@ A minimal Kotlin Android application template project.
 
 ## Basic information
 
-- Kotlin: 1.9.24
+- Kotlin: 2.0.10
 - Gradle: 8.7.0
-- Android Gradle Plugin (AGP): 8.5.1
+- Android Gradle Plugin (AGP): 8.5.2
 - SDK build-tools: 35.0.0
 - Compile/Target SDK: 35 (15)
 - Minimum SDK: 26 (8.0 Oreo, for adaptive icons)
@@ -16,6 +16,7 @@ A minimal Kotlin Android application template project.
 - Code/Resource shrinking enabled
 - Obfuscation disabled
 - Different package name for release and debug build (`.debug` suffix)
+- Redundant metadata in APK (eg. `/META-INF/*.version`) stripped
 
 ## Application features
 

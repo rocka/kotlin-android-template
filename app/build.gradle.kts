@@ -1,6 +1,3 @@
-import com.android.build.gradle.internal.tasks.CompileArtProfileTask
-import com.android.build.gradle.internal.tasks.ExpandArtProfileWildcardsTask
-import com.android.build.gradle.internal.tasks.MergeArtProfileTask
 import com.android.build.gradle.tasks.PackageApplication
 import org.gradle.api.internal.provider.AbstractProperty
 import org.gradle.api.internal.provider.Providers
@@ -39,6 +36,11 @@ android {
                 "proguard-rules.pro"
             )
         }
+        all {
+            // remove META-INF/version-control-info.textproto
+            @Suppress("UnstableApiUsage")
+            vcsInfo.include = false
+        }
     }
 
     buildFeatures {
@@ -65,19 +67,10 @@ android {
         includeInBundle = false
     }
 
-    buildTypes {
-        all {
-            // remove META-INF/version-control-info.textproto
-            @Suppress("UnstableApiUsage")
-            vcsInfo.include = false
-        }
-    }
-
     packaging {
         resources {
             excludes += setOf(
                 "/META-INF/*.version",
-                "/META-INF/*.kotlin_module",  // cannot be excluded actually
                 "/kotlin/**",
                 "/kotlin-tooling-metadata.json"
             )
