@@ -1,6 +1,7 @@
 import com.android.build.gradle.tasks.PackageApplication
 import org.gradle.api.internal.provider.AbstractProperty
 import org.gradle.api.internal.provider.Providers
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
     id("com.android.application")
@@ -9,7 +10,11 @@ plugins {
 
 val packageName = "rocka.template"
 
-val javaVersion = JavaVersion.VERSION_1_8
+kotlin {
+    compilerOptions {
+        jvmTarget = JvmTarget.JVM_1_8
+    }
+}
 
 android {
     namespace = packageName
@@ -54,12 +59,6 @@ android {
 
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
-        sourceCompatibility = javaVersion
-        targetCompatibility = javaVersion
-    }
-
-    kotlinOptions {
-        jvmTarget = javaVersion.toString()
     }
 
     dependenciesInfo {
@@ -93,5 +92,5 @@ tasks.withType<PackageApplication> {
 }
 
 dependencies {
-    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.1.5")
 }
