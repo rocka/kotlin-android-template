@@ -70,6 +70,7 @@ android {
         resources {
             excludes += setOf(
                 "/META-INF/*.version",
+                "/META-INF/androidx/**",
                 "/kotlin/**",
                 "/kotlin-tooling-metadata.json"
             )
