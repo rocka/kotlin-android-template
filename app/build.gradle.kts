@@ -12,14 +12,14 @@ val packageName = "rocka.template"
 
 kotlin {
     compilerOptions {
-        jvmTarget = JvmTarget.JVM_1_8
+        jvmTarget = JvmTarget.JVM_11
     }
 }
 
 android {
     namespace = packageName
     compileSdk = 35
-    buildToolsVersion = "35.0.0"
+    buildToolsVersion = "35.0.1"
 
     defaultConfig {
         applicationId = packageName
@@ -58,6 +58,8 @@ android {
     }
 
     compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
         isCoreLibraryDesugaringEnabled = true
     }
 
